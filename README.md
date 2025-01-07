@@ -49,7 +49,7 @@ import { useRef } from 'react';
 function Projects() {
   const myRef = useRef<HTMLDivElement | null>(null); // Adjust the type of ref based on your element
   // Rest of the code...
-}
+
 ```
 
 ### 3. Attach the Reference to the Element
