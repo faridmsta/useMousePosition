@@ -58,7 +58,7 @@ Assign the reference to the target element:
 
 ```typescript
 <div ref={myRef}>
-  {/* Rest of the code... */}
+  {/* Rest of the code.... */}
 </div>
 ```
 
