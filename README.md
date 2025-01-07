@@ -1,55 +1,98 @@
 # useMousePosition Custom Hook for TypeScript
 
-Hello everyone 👋🏻
-Today we will talk about **useMousePosition** Custom Hook.
+Welcome! 👋🏻 Today, we'll explore the **useMousePosition** custom hook. This hook is designed to simplify the process of tracking mouse positions within a window or specific elements.
 
-## What does This code for.
-  - Sometimes We need to get the mouse **X** , **Y** position of the window object even some Elements. Writeing Code For this small thing can Taketime enought time. Or you can just Use This hook.
+---
 
-## What does it returns
-  - it retuns object with 3 element: X,Y,Visiable
-'''
+## 🚀 What Does This Hook Do?
+
+Sometimes, you need to get the mouse's **X** and **Y** positions relative to the window or a specific element. Writing code for this can be time-consuming. Instead, you can use this hook to save time and effort!
+
+---
+
+## 🔍 What Does It Return?
+
+The hook returns an object with the following properties:
+
+```typescript
 {
-  x: 0,
-  y: 0,
-  visible: false
+  x: 0,        // X position of the mouse
+  y: 0,        // Y position of the mouse
+  visible: false // Whether the mouse is inside the reference element
 }
-'''
+```
 
-*x - returns the x position of Referance 
-*y - returns the y position of Referance 
-*visiable - returns the boolean if the mouse is in inside of referance element
+### Explanation:
+- **x**: The X-coordinate relative to the reference element (or window if no reference is provided).
+- **y**: The Y-coordinate relative to the reference element (or window if no reference is provided).
+- **visible**: A boolean indicating whether the mouse is inside the reference element.
 
-## How to use
-  1. Fist import the Custom Hook
-'''
-import useMousePosition from '../../../../hooks/useMousePosition'
-'''
-  2. Create a Refecance by UseRef for the Element that you wabt to get positions of mouse inside it (If you want to get *Window* mouse position skip this part)
-'''
-import { useRef } from 'react'
+---
+
+## 🛠 How to Use
+
+Follow these steps to use the **useMousePosition** hook:
+
+### 1. Import the Hook
+
+```typescript
+import useMousePosition from '../../../../hooks/useMousePosition';
+```
+
+### 2. Create a Reference for the Target Element (Optional)
+
+Use `useRef` to create a reference for the element you want to track. If you want to track the mouse position relative to the **window**, skip this step.
+
+```typescript
+import { useRef } from 'react';
 
 function Projects() {
-  const myref = useRef<HTMLDivElement | null>(null); // Thetype of Ref Should change based on element
-  // rest of code...
-'''
+  const myRef = useRef<HTMLDivElement | null>(null); // Adjust the type of ref based on your element
+  // Rest of the code...
+}
+```
 
-  3. Set The ref for element
-'''
-<div ref={myref} >
-  // rest of code...
+### 3. Attach the Reference to the Element
+
+Assign the reference to the target element:
+
+```typescript
+<div ref={myRef}>
+  {/* Rest of the code... */}
 </div>
-'''
+```
 
-  4. get the values by pasteing Ref inside the bracets (to get *Window* mouse position leave it blank)
-'''
-const { x, y, visible } = useMousePosition(myref);
+### 4. Retrieve the Values
 
-// For geting Window mouse position
-const { x, y, visible } = useMousePosition();  
-'''
+Call the hook with the reference to get the mouse position and visibility status. To track the mouse relative to the **window**, leave the reference blank.
 
+```typescript
+// Get mouse position relative to a specific element
+const { x, y, visible } = useMousePosition(myRef);
 
-## That's all. I hope you enjoyed it. See you later
+// Get mouse position relative to the window
+const { x, y, visible } = useMousePosition();
+```
 
+---
+
+## ✨ Example Output
+
+Here’s an example of the returned object:
+
+```typescript
+{
+  x: 120,       // Mouse X position
+  y: 250,       // Mouse Y position
+  visible: true // Mouse is inside the element
+}
+```
+
+---
+
+## 🎉 That's It!
+
+Now you can easily track mouse positions and visibility with this custom hook. I hope this guide was helpful! Feel free to share your feedback or contributions.
+
+See you later! 👋🏻
 
